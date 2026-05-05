@@ -11,3 +11,8 @@ INSERT INTO pizzas (nome, ingredientes, valor) VALUES
 ('Portuguesa', 'Mussarela, presunto, ovo, ervilha, cebola e calabresa', 62.90),
 ('Moda do Juca', 'Mussarela, peito de peru, palmito, alho poró e alcaparras', 72.50);
 SELECT * FROM pizzas
+
+CREATE TABLE bebidas (
+idBebidas INT AUTO_INCREMENT PRIMARY KEY,
+nome VARCHAR (100) NOT NULL,
+valor DECIMAL (10, 2) NOT NULL,
