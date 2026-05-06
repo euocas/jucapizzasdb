@@ -16,3 +16,16 @@ CREATE TABLE bebidas (
 idBebidas INT AUTO_INCREMENT PRIMARY KEY,
 nome VARCHAR (100) NOT NULL,
 valor DECIMAL (10, 2) NOT NULL,
+tamanho VARCHAR(20) NOT NULL,
+categoria ENUM('ALCOOLICO', 'NAO_ALCOOLICO') NOT NULL
+);
+
+INSERT INTO bebidas (nome, tamanho, valor, categoria) VALUES
+ 
+('Coca-Cola Zero', '2L', 15.00, 'NAO_ALCOOLICO'),
+('Guaraná Antarctica', '2L', 12.00, 'NAO_ALCOOLICO'),
+('Água Mineral', '500ml', 5.00, 'NAO_ALCOOLICO'),
+('Heineken', '250ml', 12.00, 'ALCOOLICO'),
+('Corona', 'Long Neck 330ml', 13.00, 'ALCOOLICO');
+
+SELECT * FROM bebidas;
