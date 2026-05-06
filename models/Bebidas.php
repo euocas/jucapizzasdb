@@ -21,11 +21,11 @@ class Bebidas{
 
     public function getall(){
         // SALVANDO A QUERY SQL NA VARIAVEL
-        $sql = "SELECT idBebida, nome, tamanho, valor, categoria FROM " . $this->tabela;
+        $query = "SELECT idBebida, nome, tamanho, valor, categoria FROM " . $this->tabela;
 
         // PREPARANDO QUERY PARA EXECUTAR COM CONEXAO DO BANCO DE DADOS
 
-        $stmt = $this->conn->prepare($sql);
+        $stmt = $this->conn->prepare($query);
 
         // EXECUTANDO QUERY NO BANCO
         $stmt->execute();
