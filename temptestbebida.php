@@ -1,9 +1,9 @@
 <?php
  
-require_once 'models/Bebidas.php';
+require_once 'models/Bebida.php';
 require_once 'config/Database.php';
 
-echo "<h1>Testando Conexão e Modelo Bebidas</h1>";
+echo "<h1>Testando Conexão e Modelo Bebida</h1>";
  
 $database = new Database();
 $db = $database->getConnection();
@@ -17,8 +17,8 @@ echo "<p style='color: green;'>Conexão bem-sucedida!</p>";
  
 echo "<h2>Buscando bebidas no banco...</h2>";
  
-// Instância da classe correta (Bebidas)
-$bebidas = new Bebidas($db);
+// Instância da classe correta (Bebida)
+$bebidas = new Bebida($db);
 $stmt = $bebidas->getall();
 
 // Verifica se retornou algo

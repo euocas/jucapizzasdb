@@ -5,14 +5,14 @@ header("Content-Type: application/json; charset=UTF-8");
 
 // Incluir arquivos
 include_once '../../config/Database.php';
-include_once '../../models/Bebidas.php';
+include_once '../../models/Bebida.php';
 
 // Conexão com o banco
 $database = new Database();
 $db = $database->getConnection();
 
 // Instanciar a classe correta
-$bebidas = new Bebidas($db);
+$bebidas = new Bebida($db);
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
