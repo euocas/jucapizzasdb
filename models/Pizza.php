@@ -48,6 +48,16 @@ class Pizza
         $stmt->execute();
  
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
+<<<<<<< HEAD
+=======
+ 
+        // Define as propriedades
+        $this->nome = $row['nome'];
+        $this->ingredientes = $row['ingredientes'];
+        $this->valor = $row['valor'];
+    }
+
+>>>>>>> c71ad90f5f1a713bf9ad14ee2cb91de7d0945afd
 
         if (!$row) {
             return false;

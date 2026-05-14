@@ -10,14 +10,22 @@ INSERT INTO pizzas (nome, ingredientes, valor) VALUES
 ('Frango com Catupiry', 'Frango desfiado, catupiry e mussarela', 52.90),
 ('Portuguesa', 'Mussarela, presunto, ovo, ervilha, cebola e calabresa', 62.90),
 ('Moda do Juca', 'Mussarela, peito de peru, palmito, alho poró e alcaparras', 72.50);
-SELECT * FROM pizzas
+SELECT * FROM pizzas;
 
 CREATE TABLE bebidas (
+<<<<<<< HEAD
 idBebida INT AUTO_INCREMENT PRIMARY KEY,
 nome VARCHAR (100) NOT NULL,
 valor DECIMAL (10, 2) NOT NULL,
 tamanho VARCHAR(20) NOT NULL,
 categoria ENUM('ALCOOLICO', 'NAO_ALCOOLICO') NOT NULL
+=======
+    idBebida INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    valor DECIMAL(10, 2) NOT NULL,
+    tamanho VARCHAR(20) NOT NULL,
+    categoria ENUM('ALCOOLICO', 'NAO_ALCOOLICO') NOT NULL
+>>>>>>> c71ad90f5f1a713bf9ad14ee2cb91de7d0945afd
 );
 
 INSERT INTO bebidas (nome, tamanho, valor, categoria) VALUES
