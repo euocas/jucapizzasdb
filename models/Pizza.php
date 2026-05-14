@@ -1,6 +1,6 @@
 <?php
 
-class pizza
+class Pizza
 {
     private $conn;
     private $tabela = "pizzas";
@@ -26,5 +26,47 @@ class pizza
 
     }
 
+    public function get(){
+        $query = 'SELECT
+            idPizza,
+            nome,
+            ingredientes,
+            valor
+        FROM
+            ' . $this->tabela . '
+        WHERE
+            idPizza = ?
+        LIMIT 1';
+ 
+         // Prepara a query
+        $stmt = $this->conn->prepare($query);
+ 
+        // Vincula o ID
+        $stmt->bindParam(1, $this->idPizza);
+   
+        // Executa a query
+        $stmt->execute();
+ 
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
+        if (!$row) {
+            return false;
+        }
+
+        $this->nome = $row['nome'];
+        $this->ingredientes = $row['ingredientes'];
+        $this->valor = $row['valor'];
+        return true;
+    }
+
+    public function add()
+    {
+        $query = 'INSERT INTO ' . $this->tabela
+            . ' (nome, ingredientes, valor) VALUES (?, ?, ?)';
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(1, $this->nome);
+        $stmt->bindParam(2, $this->ingredientes);
+        $stmt->bindParam(3, $this->valor);
+        return $stmt->execute();
+    }
 }

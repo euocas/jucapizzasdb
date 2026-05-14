@@ -13,7 +13,7 @@ INSERT INTO pizzas (nome, ingredientes, valor) VALUES
 SELECT * FROM pizzas
 
 CREATE TABLE bebidas (
-idBebidas INT AUTO_INCREMENT PRIMARY KEY,
+idBebida INT AUTO_INCREMENT PRIMARY KEY,
 nome VARCHAR (100) NOT NULL,
 valor DECIMAL (10, 2) NOT NULL,
 tamanho VARCHAR(20) NOT NULL,

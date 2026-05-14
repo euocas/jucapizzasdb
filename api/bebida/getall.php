@@ -1,37 +1,32 @@
 <?php
-// Headers obrigatórios
+
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 
-// Incluir arquivos
-include_once '../../config/Database.php';
-include_once '../../models/Bebidas.php';
+include_once __DIR__ . '/../../config/Database.php';
+include_once __DIR__ . '/../../models/Bebidas.php';
 
-// Conexão com o banco
 $database = new Database();
 $db = $database->getConnection();
 
-// Instanciar a classe correta
 $bebidas = new Bebidas($db);
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
-    $stmt = $bebidas->getall();
-    $num = $stmt->rowCount();
+    $stmt = $bebidas->getAll();
 
-    if ($num > 0) {
+    if ($stmt->rowCount() > 0) {
 
         $bebidas_arr = array();
 
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            extract($row);
 
             $bebida_item = array(
-                "id" => $idBebida,
-                "nome" => $nome,
-                "tamanho" => $tamanho,
-                "valor" => $valor,
-                "categoria" => $categoria
+                "id" => $row['idBebida'],
+                "nome" => $row['nome'],
+                "tamanho" => $row['tamanho'],
+                "valor" => $row['valor'],
+                "categoria" => $row['categoria']
             );
 
             array_push($bebidas_arr, $bebida_item);
@@ -43,11 +38,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     } else {
 
         http_response_code(404);
-        echo json_encode(array("mensagem" => "Nenhuma bebida encontrada."));
+        echo json_encode(array(
+            "mensagem" => "Nenhuma bebida encontrada."
+        ));
     }
 
 } else {
 
     http_response_code(405);
-    echo json_encode(array("mensagem" => "Método não permitido."));
+    echo json_encode(array(
+        "mensagem" => "Método não permitido."
+    ));
 }
