@@ -13,19 +13,11 @@ INSERT INTO pizzas (nome, ingredientes, valor) VALUES
 SELECT * FROM pizzas;
 
 CREATE TABLE bebidas (
-<<<<<<< HEAD
-idBebida INT AUTO_INCREMENT PRIMARY KEY,
-nome VARCHAR (100) NOT NULL,
-valor DECIMAL (10, 2) NOT NULL,
-tamanho VARCHAR(20) NOT NULL,
-categoria ENUM('ALCOOLICO', 'NAO_ALCOOLICO') NOT NULL
-=======
     idBebida INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
     valor DECIMAL(10, 2) NOT NULL,
     tamanho VARCHAR(20) NOT NULL,
     categoria ENUM('ALCOOLICO', 'NAO_ALCOOLICO') NOT NULL
->>>>>>> c71ad90f5f1a713bf9ad14ee2cb91de7d0945afd
 );
 
 INSERT INTO bebidas (nome, tamanho, valor, categoria) VALUES

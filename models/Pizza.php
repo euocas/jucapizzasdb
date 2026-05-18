@@ -37,27 +37,12 @@ class Pizza
         WHERE
             idPizza = ?
         LIMIT 1';
- 
-         // Prepara a query
-        $stmt = $this->conn->prepare($query);
- 
-        // Vincula o ID
-        $stmt->bindParam(1, $this->idPizza);
-   
-        // Executa a query
-        $stmt->execute();
- 
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-<<<<<<< HEAD
-=======
- 
-        // Define as propriedades
-        $this->nome = $row['nome'];
-        $this->ingredientes = $row['ingredientes'];
-        $this->valor = $row['valor'];
-    }
 
->>>>>>> c71ad90f5f1a713bf9ad14ee2cb91de7d0945afd
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(1, $this->idPizza);
+        $stmt->execute();
+
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if (!$row) {
             return false;
